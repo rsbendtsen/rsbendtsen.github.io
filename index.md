@@ -1,2 +1,2 @@
-Titel: Balou
+Title: Balou
 **Verdens bedste kat**
