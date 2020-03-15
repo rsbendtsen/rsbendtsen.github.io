@@ -7,3 +7,5 @@
 **ÅÅÅÅÅÅÅÅÅÅHHHHHHHHHH Min værste fjende**
 
 <img src="https://rsbendtsen.github.io/billeder/balou3.jpg" height="150" width="150">
+
+<img src="https://rsbendtsen.github.io/billeder/balou4.jpg" height="150" width="150">
