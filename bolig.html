@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Køb eller lej bolig</title>
+	<link href="IkkeSaaGrim.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="topnav">
+		<a class="active" href="./index.html">Start</a>
+		<a href="bolig.html">Boligberegner</a>
+		<a href="taxa.html">Taxa eller bil</a>
+	</div> 
+
+<h1>Eje eller leje - Hvad kan bedst kan betale sig?</h1>
+
+<p>På denne kan du beregne om der er størst økonomisk gevinst ved en lejebolig
+eller en sammenlignelig ejerbolig henover en 30 årig periode</p>
+<p>Opsparingen man opnå ved løbende at investerer besparelsen ved at leje frem for eje, 
+sammenlignes med ejerboligens forventede fremtidige værdi </p>
+<p>Man får altså ikke mere eller mindre til rådighed hver måned, men opsparer differencen i stedet for</p>
+<p>Du kan med fordel anvende <a href="https://www.boligsiden.dk/">salgsopstillinger</a> til at finde sammenlignelige boliger
+og <a href="https://www.nykredit.dk/dit-liv/bolig/boligberegnere/beregn-lan-til-ny-bolig/">bankers boliglånsberegnere</a>
+til at finde ydelse for bank- og realkreditlån</p>
+
+<!-- <p>Formålet med siden, er at der i denne beregning tages højde for, at man investerer de penge man spare ved at bo i en lejebolig, 
+som er billigere end en sammenlignelig ejerbolig. Andre lignende beregnere på nettet tager ikke højde for dette. 
+Præmisen er at man placerer differencen mellem udgift til leje og udgift til køb i aktier
+og der beregnes så hvor man kan forvente det største afkast efter 30 år.</p> -->
+
+<h3>Forudsætninger</h3>
+
+<ul>
+	<!-- <li>Formålet er at beregne forventede afkast, så det antages du har økonomi, til at købe en tilsvarende ejerbolig</li> København som om -->
+	<!-- <li>Din månedlige besparelse ved en lejebolig, investeres i aktier</li> -->
+	<li>9,79 % i årligt afkast (Historisk afkast for S&P 500)</li>
+	<li>4 % årlig stigning boligpriser</li>
+	<li>42 % realisationsbeskatning af investeringsafkast</li>
+	<li>30 års løbetid</li>
+	<li>Udbetalingen (5 % af købspris) til ejerbolig investeres ved dag 1</li>
+	<li>Besparelsen reduceres med 2 % fra start, for at forsøge at tage højde for inflation i lejeniveauet</li>
+	<li>Indtast Nettoydelse + ejerudgift, så der tages højde for rentefradrag og boligskatter</li>
+</ul>
+
+
+<h3>Indtast de nødvendige tal i felterne</h3>
+
+<form method="post"><label for="leje">Månedlig leje:</label><br />
+<input id="leje" name="leje" type="text" /><br />
+<label for="ejer">Månedlig nettoydelse og ejerudgift:</label><br />
+<input id="ejer" name="ejer" type="text" /><br />
+<label for="værdi">Bolig købspris:</label><br />
+<input id="værdi" name="værdi" type="text" /><br />
+<!-- <label for="tilbagebetaling">Total tilbagebetaling boligkøb:</label><br />
+<input id="tilbagebetaling" name="tilbagebetaling" type="text" /><br /> -->
+<button id="knap" type="button">Beregn</button></form>
+
+<h3 id ="result">Resultat</h3>
+
+<p id="test">Klik beregn for resultat</p>
+
+<h3>Beregningsmetode</h3>
+
+<ul>
+	<li>Månedlig besparelse: (Nettoydelse + ejerudgift - leje) * 0.98</li>
+	<li>Udbetaling: Boligens købspris * 0.05</li>
+	<li>Fremtidsværdi af besparelse (FV excel formel): FV(0,0979/12,360,besparelse,Udbetaling,0)</li>
+	<li>Afkast af investering: FV af besparelse - Månedlig besparelse * 360 (12 md * 30 år)</li>
+	<li>Skat af investering: Afkast af investering * 0,42</li>
+	<li>Lejerafkast: Fremtidsværdi af besparelse - skat</li>
+	<li>Fremtidig boligværdi: Købspris * (1+årlig prisstigning)^30</li>
+	<li>Ejerafkast: Fremtidig boligværdi<!--  - Tilbagebetaling --></li>
+</ul>
+
+<h3>Mangler</h3>
+
+<ul>
+	<li>Vis Break even punkt</li>
+	<li>Solver funktion ved et ukendt input (Hvad må lejen maks være, når de andre værdier er kendte)</li>
+</ul>
+<script src="index.js"></script></body>
+</html>
